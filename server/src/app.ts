@@ -1,6 +1,7 @@
 import cors from 'cors';
-import express, { Application, Request, Response } from 'express';
+import express, { Application } from 'express';
 import morgan from 'morgan';
+import router from './routes';
 
 const app: Application = express();
 const NODE_ENV = process.env.NODE_ENV || 'development';
@@ -10,8 +11,6 @@ app.use(morgan(NODE_ENV === 'development' ? 'dev' : 'combined'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.get('/', (req: Request, res: Response) => {
-  res.send('GOOD');
-});
+app.use('/api', router);
 
 export default app;
