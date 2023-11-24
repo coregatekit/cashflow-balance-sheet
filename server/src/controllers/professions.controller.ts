@@ -1,7 +1,9 @@
 import { Request, Response } from 'express';
+import Profession from '../models/profession.model';
 
 async function getAllProfessions(req: Request, res: Response) {
-  res.json("All professions");
+  const professions = await Profession.find().sort({ profression: 1 });
+  res.json(professions);
 }
 
 export {
