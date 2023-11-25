@@ -2,8 +2,6 @@ import { NextFunction, Request, Response } from 'express';
 import redisClient from '../databases/redis';
 
 async function cacheGetAllProfessions(req: Request, res: Response, next: NextFunction) {
-  console.log("Middleware");
-
   try {
     const key = req.originalUrl;
     const professions = await redisClient.get(key);

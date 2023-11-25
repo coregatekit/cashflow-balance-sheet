@@ -4,7 +4,6 @@ import redisClient from '../databases/redis';
 import { CACHE_TIME } from '../configs';
 
 async function getAllProfessions(req: Request, res: Response) {
-  console.log("controller");
   const key = req.originalUrl;
 
   try {
