@@ -1,8 +1,9 @@
 import { Request, Response } from 'express';
+import { uuid } from 'uuidv4';
 import Session from '../models/session.model';
 
 async function createSession(req: Request, res: Response) {
-  const session = await Session.create({});
+  const session = await Session.create({session: uuid()});
   return res.status(201).json({
     data: session,
   });
@@ -17,8 +18,6 @@ async function getAllSessions(req: Request, res: Response) {
 
 async function getSessionDetail(req: Request, res: Response) {
   const key = req.params.key as string;
-  console.log(key);
-
   const session = await Session.findOne({ session: key });
 
   if (!session) {
