@@ -1,4 +1,4 @@
-import { Schema, model } from 'mongoose';
+import { Schema, model, now } from 'mongoose';
 import { randomUUID } from 'crypto';
 
 type PlayerSessionType = {
@@ -16,6 +16,7 @@ type SessionType = {
 
 const sessionSchema = new Schema<SessionType>({
   session: { type: String, default: randomUUID() },
+  createdAt: { type: Date, default: now() },
   totalPlayer: { type: Number, default: 0 },
   players: [
     {
