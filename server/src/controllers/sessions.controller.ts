@@ -66,9 +66,35 @@ async function removePlayerFromSession(req: Request, res: Response) {
   });
 }
 
+async function deleteSession(req: Request, res: Response) {
+  const key = req.query.key as string;
+
+  const session = await Session.findOne({ session: key });
+
+  if (session) {
+    const players: string[] = [];
+    session.players.map((player) => {
+      players.push(player.name);
+    });
+
+    await Player.deleteMany({ name: { $in: players } });
+    console.info("players deleted");
+
+    await Session.deleteOne({ session: key });
+    console.info("session deleted");
+
+    return res.status(204).send();
+  }
+
+  return res.status(400).json({
+    msg: 'session not found',
+  });
+}
+
 export {
   createSession,
   getAllSessions,
   getSessionDetail,
   removePlayerFromSession,
+  deleteSession,
 };
