@@ -34,4 +34,3 @@ const sessionSchema = new Schema<SessionType>({
 const Session = model<SessionType>('sessions', sessionSchema);
 
 export default Session;
-

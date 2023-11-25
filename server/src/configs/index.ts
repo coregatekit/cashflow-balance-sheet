@@ -29,4 +29,4 @@ export {
   REDIS_USER,
   REDIS_PASS,
   CACHE_TIME,
-}
+};

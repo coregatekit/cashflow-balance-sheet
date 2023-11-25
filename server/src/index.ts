@@ -14,7 +14,10 @@ httpServer.listen(PORT, () => {
 });
 
 const gracefulShutdown = () => {
-  console.info('Get SIGTERM. Graceful shutdown start', new Date().toISOString());
+  console.info(
+    'Get SIGTERM. Graceful shutdown start',
+    new Date().toISOString(),
+  );
   try {
     httpServer.close(async () => {
       console.log('Closed out remaining connections.');
@@ -23,7 +26,9 @@ const gracefulShutdown = () => {
     });
 
     setTimeout(async () => {
-      console.error('Could not close connections in time, forcefully shutting down');
+      console.error(
+        'Could not close connections in time, forcefully shutting down',
+      );
       redisClient.disconnect();
       (await mongoClient).connection.close();
     }, 10 * 1000);
@@ -34,7 +39,7 @@ const gracefulShutdown = () => {
   } finally {
     process.exit();
   }
-}
+};
 
 // listen for TERM signal .e.g kill
 process.on('SIGTERM', gracefulShutdown);

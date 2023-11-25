@@ -1,5 +1,11 @@
 import { Router } from 'express';
-import { createSession, deleteSession, getAllSessions, getSessionDetail, removePlayerFromSession } from '../controllers/sessions.controller';
+import {
+  createSession,
+  deleteSession,
+  getAllSessions,
+  getSessionDetail,
+  removePlayerFromSession,
+} from '../controllers/sessions.controller';
 
 const sessionRouters: Router = Router();
 

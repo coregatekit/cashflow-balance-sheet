@@ -11,27 +11,33 @@ type createPlayerDto = {
 };
 
 async function createPlayer(req: Request, res: Response) {
-  const { current_sessions, name, dreams, choose_profession }: createPlayerDto = req.body;
+  const { current_sessions, name, dreams, choose_profession }: createPlayerDto =
+    req.body;
 
   const session = await Session.findOne({ session: current_sessions });
 
   if (session) {
-    const playerIndex = session.players.findIndex((p) => p.name = name);
+    const playerIndex = session.players.findIndex((p) => (p.name = name));
     if (playerIndex !== -1) {
       return res.status(400).json({
-        msg: `player ${name} already exist.`
+        msg: `player ${name} already exist.`,
       });
     }
 
-    const profession = await Profession.findOne({ profession: choose_profession });
+    const profession = await Profession.findOne({
+      profession: choose_profession,
+    });
     if (profession) {
       const player = await Player.create({
         name,
         dreams,
-        profession
+        profession,
       });
       player.total_incomes = profession.income.salary;
-      player.total_expenses = profession.expenses.reduce((prev, expense) => prev + expense.amount, 0);
+      player.total_expenses = profession.expenses.reduce(
+        (prev, expense) => prev + expense.amount,
+        0,
+      );
       player.cashflow_per_month = player.total_incomes - player.total_expenses;
       player.save();
 
@@ -52,6 +58,4 @@ async function createPlayer(req: Request, res: Response) {
   }
 }
 
-export {
-  createPlayer,
-};
+export { createPlayer };

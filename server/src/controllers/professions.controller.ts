@@ -17,10 +17,8 @@ async function getAllProfessions(req: Request, res: Response) {
     });
   } catch (error) {
     console.error(error);
-    return res.status(500).json({ msg: "Some error has occured."});
+    return res.status(500).json({ msg: 'Some error has occured.' });
   }
 }
 
-export {
-  getAllProfessions,
-};
+export { getAllProfessions };

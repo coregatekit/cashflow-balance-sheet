@@ -4,7 +4,9 @@ import Session from '../models/session.model';
 import Player from '../models/player.model';
 
 async function createSession(req: Request, res: Response) {
-  const session = await Session.create({ session: uuid().slice(0, 6).toUpperCase() });
+  const session = await Session.create({
+    session: uuid().slice(0, 6).toUpperCase(),
+  });
   return res.status(201).json({
     data: session,
   });
@@ -46,7 +48,7 @@ async function removePlayerFromSession(req: Request, res: Response) {
 
       if (isHost) {
         return res.status(400).json({
-          msg: "host player can not be remove",
+          msg: 'host player can not be remove',
         });
       }
 
@@ -78,10 +80,10 @@ async function deleteSession(req: Request, res: Response) {
     });
 
     await Player.deleteMany({ name: { $in: players } });
-    console.info("players deleted");
+    console.info('players deleted');
 
     await Session.deleteOne({ session: key });
-    console.info("session deleted");
+    console.info('session deleted');
 
     return res.status(204).send();
   }

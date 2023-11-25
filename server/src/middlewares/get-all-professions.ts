@@ -1,7 +1,11 @@
 import { NextFunction, Request, Response } from 'express';
 import redisClient from '../databases/redis';
 
-async function cacheGetAllProfessions(req: Request, res: Response, next: NextFunction) {
+async function cacheGetAllProfessions(
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) {
   try {
     const key = req.originalUrl;
     const professions = await redisClient.get(key);
@@ -15,8 +19,8 @@ async function cacheGetAllProfessions(req: Request, res: Response, next: NextFun
       next();
     }
   } catch (error) {
-    console.error("Middleware Error: ", error);
-    return res.status(500).json({ msg: "Some error has occured."});
+    console.error('Middleware Error: ', error);
+    return res.status(500).json({ msg: 'Some error has occured.' });
   }
 }
 
