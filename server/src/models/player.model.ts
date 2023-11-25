@@ -1,6 +1,6 @@
 import { Schema, Types, model } from 'mongoose';
 
-type PlayerType = {
+export type PlayerType = {
   name: string;
   dreams: string;
   prefession: Types.ObjectId;
@@ -8,7 +8,7 @@ type PlayerType = {
   total_incomes: number;
   total_expenses: number;
   cashflow: number;
-}
+};
 
 const playerSchema = new Schema<PlayerType>({
   name: { type: String, required: true },
