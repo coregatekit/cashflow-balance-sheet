@@ -1,21 +1,30 @@
 import { Schema, model } from 'mongoose';
-import { PlayerType } from './player.model';
 import { randomUUID } from 'crypto';
 
+type PlayerSessionType = {
+  playerId: string;
+  name: string;
+  cashflow: number;
+};
+
 type SessionType = {
-  key: string;
+  session: string;
   createdAt: Date;
   totalPlayer: number;
-  players: PlayerType[];
+  players: PlayerSessionType[];
 };
 
 const sessionSchema = new Schema<SessionType>({
-  key: { type: String, default: randomUUID() },
+  session: { type: String, default: randomUUID() },
   totalPlayer: { type: Number, default: 0 },
   players: [
     {
-      type: Schema.Types.ObjectId,
-      ref: 'players',
+      playerId: {
+        type: Schema.Types.ObjectId,
+        ref: 'players',
+      },
+      name: { type: String, required: true },
+      cashflow: { type: Number, default: 0 },
     },
   ],
 });
