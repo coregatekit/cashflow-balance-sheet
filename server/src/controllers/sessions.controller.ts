@@ -4,7 +4,7 @@ import Session from '../models/session.model';
 import Player from '../models/player.model';
 
 async function createSession(req: Request, res: Response) {
-  const session = await Session.create({ session: uuid() });
+  const session = await Session.create({ session: uuid().slice(0, 6).toUpperCase() });
   return res.status(201).json({
     data: session,
   });
