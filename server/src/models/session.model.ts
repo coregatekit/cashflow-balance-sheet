@@ -1,6 +1,6 @@
 import { Schema, model, now } from 'mongoose';
 
-enum SessionStatus {
+export enum SessionStatus {
   WAITING = 'WAITING',
   STARTED = 'STARTED',
   END = 'END',

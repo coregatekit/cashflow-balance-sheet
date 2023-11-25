@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { uuid } from 'uuidv4';
-import Session from '../models/session.model';
+import Session, { SessionStatus } from '../models/session.model';
 import Player from '../models/player.model';
 
 async function createSession(req: Request, res: Response) {
@@ -93,10 +93,35 @@ async function deleteSession(req: Request, res: Response) {
   });
 }
 
+async function updateSessionStatus(req: Request, res: Response) {
+  const key = req.query.key as string;
+  const status = req.query.status as string;
+
+  if (!status || !(status in SessionStatus)) {
+    return res.status(400).json({
+      msg: 'invalid type of session state',
+    });
+  }
+
+  const session = await Session.findOne({ session: key });
+
+  if (session) {
+    await session.updateOne({ status });
+    return res.status(200).json({
+      msg: 'session updated',
+    });
+  }
+
+  return res.status(400).json({
+    msg: 'session not found',
+  });
+}
+
 export {
   createSession,
   getAllSessions,
   getSessionDetail,
   removePlayerFromSession,
   deleteSession,
+  updateSessionStatus,
 };
