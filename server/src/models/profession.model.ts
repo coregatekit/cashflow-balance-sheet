@@ -5,15 +5,10 @@ type ProfessionType = {
   income: {
     salary: number;
   },
-  expenses: {
-    taxes: number;
-    home_mortgage_payment: number;
-    school_loan_payment: number;
-    car_loan_payment: number;
-    credit_card_payment: number;
-    other_expenses: number;
-    per_child_expense: number;
-  },
+  expenses: [{
+    name: string;
+    amount: number;
+  }],
   assets: {
     saving: number;
   },
@@ -30,15 +25,12 @@ const professionSchema = new Schema<ProfessionType>({
   income: {
     salary: { type: Number, required: true },
   },
-  expenses: {
-    taxes: { type: Number, required: true },
-    home_mortgage_payment: { type: Number, required: true },
-    school_loan_payment: { type: Number, required: true },
-    car_loan_payment: { type: Number, required: true },
-    credit_card_payment: { type: Number, required: true },
-    other_expenses: { type: Number, required: true },
-    per_child_expense: { type: Number, required: true },
-  },
+  expenses: [
+    {
+      name: { type: String, required: true },
+      amount: { type: Number, required: true },
+    }
+  ],
   assets: {
     saving: { type: Number, required: true },
   },
