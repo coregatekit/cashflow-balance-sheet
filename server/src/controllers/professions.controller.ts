@@ -1,13 +1,13 @@
 import { Request, Response } from 'express';
-import Profession from '../models/profession.model';
 import redisClient from '../databases/redis';
 import { CACHE_TIME } from '../configs';
+import { findAllProfessions } from '../services';
 
 async function getAllProfessions(req: Request, res: Response) {
   const key = req.originalUrl;
 
   try {
-    const professions = await Profession.find().sort({ profression: 1 });
+    const professions = await findAllProfessions();
 
     await redisClient.setEx(key, CACHE_TIME, JSON.stringify(professions));
 
