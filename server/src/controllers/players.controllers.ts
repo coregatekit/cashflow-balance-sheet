@@ -24,5 +24,4 @@ async function createPlayer(req: Request, res: Response) {
   });
 }
 
-
 export { createPlayer };

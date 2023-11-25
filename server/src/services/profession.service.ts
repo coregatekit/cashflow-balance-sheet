@@ -4,6 +4,4 @@ async function findAllProfessions() {
   return await Profession.find().sort({ profession: 1 });
 }
 
-export {
-  findAllProfessions,
-};
+export { findAllProfessions };

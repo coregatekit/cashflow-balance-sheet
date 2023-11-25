@@ -3,7 +3,9 @@ import Player, { PlayerType } from '../models/player.model';
 import Profession from '../models/profession.model';
 import Session from '../models/session.model';
 
-async function createNewPlayer(dto: CreatePlayerDto): Promise<string | PlayerType> {
+async function createNewPlayer(
+  dto: CreatePlayerDto,
+): Promise<string | PlayerType> {
   const session = await Session.findOne({ session: dto.current_sessions });
 
   if (session) {
@@ -49,6 +51,4 @@ async function createNewPlayer(dto: CreatePlayerDto): Promise<string | PlayerTyp
   return 'session not found';
 }
 
-export {
-  createNewPlayer,
-};
+export { createNewPlayer };

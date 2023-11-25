@@ -1,6 +1,13 @@
 import { Request, Response } from 'express';
 import { SessionStatus } from '../models/session.model';
-import { createNewSession, deleteTheSession, findAllSessions, findSessionDetail, removePlayer, updateStatus } from '../services';
+import {
+  createNewSession,
+  deleteTheSession,
+  findAllSessions,
+  findSessionDetail,
+  removePlayer,
+  updateStatus,
+} from '../services';
 
 async function createSession(req: Request, res: Response) {
   const session = await createNewSession();

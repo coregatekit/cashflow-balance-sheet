@@ -16,7 +16,10 @@ async function createNewSession(): Promise<SessionType> {
   });
 }
 
-async function removePlayer(session: string, player: string): Promise<SessionType | null | string> {
+async function removePlayer(
+  session: string,
+  player: string,
+): Promise<SessionType | null | string> {
   const currentSession = await Session.findOne({ session });
 
   if (currentSession) {
@@ -46,7 +49,6 @@ async function deleteTheSession(session: string): Promise<null | string> {
 
   if (!currentSession) {
     return 'session not found';
-
   }
   const players: string[] = [];
   currentSession.players.map((player) => {
@@ -62,7 +64,10 @@ async function deleteTheSession(session: string): Promise<null | string> {
   return null;
 }
 
-async function updateStatus(session: string, status: SessionStatus): Promise<string> {
+async function updateStatus(
+  session: string,
+  status: SessionStatus,
+): Promise<string> {
   const currentSession = await Session.findOne({ session });
 
   if (currentSession) {
@@ -79,4 +84,4 @@ export {
   removePlayer,
   deleteTheSession,
   updateStatus,
-}
+};
