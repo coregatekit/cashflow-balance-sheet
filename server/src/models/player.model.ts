@@ -18,6 +18,7 @@ const playerSchema = new Schema<PlayerType>({
   total_children: { type: Number, default: 0 },
   passive_income: { type: Number, default: 0 },
   total_incomes: { type: Number, default: 0 },
+  total_expenses: { type: Number, default: 0 },
   cashflow_per_month: { type: Number, default: 0 },
 });
 
