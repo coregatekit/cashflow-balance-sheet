@@ -5,7 +5,7 @@ import {
   getAllSessions,
   getSessionDetail,
   removePlayerFromSession,
-} from '../controllers/sessions.controller';
+} from '../controllers';
 
 const sessionRouters: Router = Router();
 
