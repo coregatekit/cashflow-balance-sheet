@@ -13,7 +13,7 @@ type createPlayerDto = {
 async function createPlayer(req: Request, res: Response) {
   const { current_sessions, name, dreams, choose_profession }: createPlayerDto = req.body;
 
-  const session = await Session.findOne({ current_sessions });
+  const session = await Session.findOne({ session: current_sessions });
 
   if (session) {
     const profession = await Profession.findOne({ profession: choose_profession });
