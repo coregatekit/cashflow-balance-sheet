@@ -1,19 +1,16 @@
 import { Request, Response } from 'express';
-import { uuid } from 'uuidv4';
-import Session, { SessionStatus } from '../models/session.model';
-import Player from '../models/player.model';
+import { SessionStatus } from '../models/session.model';
+import { createNewSession, deleteTheSession, findAllSessions, findSessionDetail, removePlayer, updateStatus } from '../services';
 
 async function createSession(req: Request, res: Response) {
-  const session = await Session.create({
-    session: uuid().slice(0, 6).toUpperCase(),
-  });
+  const session = await createNewSession();
   return res.status(201).json({
     data: session,
   });
 }
 
 async function getAllSessions(req: Request, res: Response) {
-  const sessions = await Session.find();
+  const sessions = await findAllSessions();
   return res.status(201).json({
     data: sessions,
   });
@@ -21,7 +18,7 @@ async function getAllSessions(req: Request, res: Response) {
 
 async function getSessionDetail(req: Request, res: Response) {
   const key = req.params.key as string;
-  const session = await Session.findOne({ session: key });
+  const session = await findSessionDetail(key);
 
   if (!session) {
     return res.status(400).json({
@@ -38,59 +35,30 @@ async function removePlayerFromSession(req: Request, res: Response) {
   const key = req.params.key as string;
   const player = req.query.player as string;
 
-  const session = await Session.findOne({ session: key });
+  const session = await removePlayer(key, player);
 
   if (session) {
-    const index = session.players.findIndex((p) => p.name === player);
-
-    if (index !== -1) {
-      const isHost = session.players[index].host;
-
-      if (isHost) {
-        return res.status(400).json({
-          msg: 'host player can not be remove',
-        });
-      }
-
-      session.players.splice(index, 1);
-      session.save();
-
-      await Player.findOneAndDelete({ name: player });
-
-      return res.status(200).json({
-        data: session,
-      });
-    }
+    return res.status(200).json({
+      data: session,
+    });
   }
 
   return res.status(400).json({
-    msg: 'session not found',
+    msg: session,
   });
 }
 
 async function deleteSession(req: Request, res: Response) {
   const key = req.query.key as string;
 
-  const session = await Session.findOne({ session: key });
+  const session = await deleteTheSession(key);
 
   if (session) {
-    const players: string[] = [];
-    session.players.map((player) => {
-      players.push(player.name);
+    return res.status(400).json({
+      msg: session,
     });
-
-    await Player.deleteMany({ name: { $in: players } });
-    console.info('players deleted');
-
-    await Session.deleteOne({ session: key });
-    console.info('session deleted');
-
-    return res.status(204).send();
   }
-
-  return res.status(400).json({
-    msg: 'session not found',
-  });
+  return res.status(204).send();
 }
 
 async function updateSessionStatus(req: Request, res: Response) {
@@ -103,17 +71,16 @@ async function updateSessionStatus(req: Request, res: Response) {
     });
   }
 
-  const session = await Session.findOne({ session: key });
+  const session = await updateStatus(key, status as SessionStatus);
 
   if (session) {
-    await session.updateOne({ status });
     return res.status(200).json({
-      msg: 'session updated',
+      msg: session,
     });
   }
 
   return res.status(400).json({
-    msg: 'session not found',
+    msg: session,
   });
 }
 

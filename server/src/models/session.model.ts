@@ -13,7 +13,7 @@ type PlayerSessionType = {
   host: boolean;
 };
 
-type SessionType = {
+export type SessionType = {
   session: string;
   created_at: Date;
   total_player: number;
