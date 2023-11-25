@@ -4,15 +4,36 @@
         "income": {
             "salary": 3300
         },
-        "expenses": {
-            "taxes": 500,
-            "home_mortgage_payment": 500,
-            "school_loan_payment": 100,
-            "car_loan_payment": 100,
-            "credit_card_payment": 100,
-            "other_expenses": 700,
-            "per_child_expense": 200
-        },
+        "expenses": [
+            {
+                "name": "taxes",
+                "amount": 500
+            },
+            {
+                "name": "home_mortgage_payment",
+                "amount": 500
+            },
+            {
+                "name": "school_loan_payment",
+                "amount": 100
+            },
+            {
+                "name": "car_loan_payment",
+                "amount": 100
+            },
+            {
+                "name": "credit_card_payment",
+                "amount": 100
+            },
+            {
+                "name": "other_expenses",
+                "amount": 700
+            },
+            {
+                "name": "per_child_expense",
+                "amount": 200
+            }
+        ],
         "assets": {
             "saving": 400
         },
@@ -28,15 +49,36 @@
         "income": {
             "salary": 2500
         },
-        "expenses": {
-            "taxes": 500,
-            "home_mortgage_payment": 400,
-            "school_loan_payment": 0,
-            "car_loan_payment": 100,
-            "credit_card_payment": 100,
-            "other_expenses": 600,
-            "per_child_expense": 200
-        },
+        "expenses": [
+            {
+                "name": "taxes",
+                "amount": 500
+            },
+            {
+                "name": "home_mortgage_payment",
+                "amount": 400
+            },
+            {
+                "name": "school_loan_payment",
+                "amount": 0
+            },
+            {
+                "name": "car_loan_payment",
+                "amount": 100
+            },
+            {
+                "name": "credit_card_payment",
+                "amount": 100
+            },
+            {
+                "name": "other_expenses",
+                "amount": 600
+            },
+            {
+                "name": "per_child_expense",
+                "amount": 200
+            }
+        ],
         "assets": {
             "saving": 800
         },
@@ -52,15 +94,36 @@
         "income": {
             "salary": 13200
         },
-        "expenses": {
-            "taxes": 3200,
-            "home_mortgage_payment": 1900,
-            "school_loan_payment": 700,
-            "car_loan_payment": 300,
-            "credit_card_payment": 200,
-            "other_expenses": 2000,
-            "per_child_expense": 700
-        },
+        "expenses": [
+            {
+                "name": "taxes",
+                "amount": 3200
+            },
+            {
+                "name": "home_mortgage_payment",
+                "amount": 1900
+            },
+            {
+                "name": "school_loan_payment",
+                "amount": 700
+            },
+            {
+                "name": "car_loan_payment",
+                "amount": 300
+            },
+            {
+                "name": "credit_card_payment",
+                "amount": 200
+            },
+            {
+                "name": "other_expenses",
+                "amount": 2000
+            },
+            {
+                "name": "per_child_expense",
+                "amount": 700
+            }
+        ],
         "assets": {
             "saving": 3500
         },
@@ -76,15 +139,36 @@
         "income": {
             "salary": 3100
         },
-        "expenses": {
-            "taxes": 600,
-            "home_mortgage_payment": 400,
-            "school_loan_payment": 100,
-            "car_loan_payment": 100,
-            "credit_card_payment": 200,
-            "other_expenses": 600,
-            "per_child_expense": 200
-        },
+        "expenses": [
+            {
+                "name": "taxes",
+                "amount": 600
+            },
+            {
+                "name": "home_mortgage_payment",
+                "amount": 400
+            },
+            {
+                "name": "school_loan_payment",
+                "amount": 100
+            },
+            {
+                "name": "car_loan_payment",
+                "amount": 100
+            },
+            {
+                "name": "credit_card_payment",
+                "amount": 200
+            },
+            {
+                "name": "other_expenses",
+                "amount": 600
+            },
+            {
+                "name": "per_child_expense",
+                "amount": 200
+            }
+        ],
         "assets": {
             "saving": 500
         },
@@ -94,20 +178,42 @@
             "car_loans": 5000,
             "credit_card_debt": 4000
         }
-    },{
+    },
+    {
         "profession": "Business Manager",
         "income": {
             "salary": 4600
         },
-        "expenses": {
-            "taxes": 900,
-            "home_mortgage_payment": 700,
-            "school_loan_payment": 100,
-            "car_loan_payment": 100,
-            "credit_card_payment": 200,
-            "other_expenses": 1000,
-            "per_child_expense": 300
-        },
+        "expenses": [
+            {
+                "name": "taxes",
+                "amount": 900
+            },
+            {
+                "name": "home_mortgage_payment",
+                "amount": 700
+            },
+            {
+                "name": "school_loan_payment",
+                "amount": 100
+            },
+            {
+                "name": "car_loan_payment",
+                "amount": 100
+            },
+            {
+                "name": "credit_card_payment",
+                "amount": 200
+            },
+            {
+                "name": "other_expenses",
+                "amount": 1000
+            },
+            {
+                "name": "per_child_expense",
+                "amount": 300
+            }
+        ],
         "assets": {
             "saving": 400
         },
@@ -123,15 +229,36 @@
         "income": {
             "salary": 3000
         },
-        "expenses": {
-            "taxes": 600,
-            "home_mortgage_payment": 400,
-            "school_loan_payment": 0,
-            "car_loan_payment": 100,
-            "credit_card_payment": 100,
-            "other_expenses": 700,
-            "per_child_expense": 200
-        },
+        "expenses": [
+            {
+                "name": "taxes",
+                "amount": 600
+            },
+            {
+                "name": "home_mortgage_payment",
+                "amount": 400
+            },
+            {
+                "name": "school_loan_payment",
+                "amount": 0
+            },
+            {
+                "name": "car_loan_payment",
+                "amount": 100
+            },
+            {
+                "name": "credit_card_payment",
+                "amount": 100
+            },
+            {
+                "name": "other_expenses",
+                "amount": 700
+            },
+            {
+                "name": "per_child_expense",
+                "amount": 200
+            }
+        ],
         "assets": {
             "saving": 500
         },
@@ -147,15 +274,36 @@
         "income": {
             "salary": 9500
         },
-        "expenses": {
-            "taxes": 2000,
-            "home_mortgage_payment": 1000,
-            "school_loan_payment": 0,
-            "car_loan_payment": 300,
-            "credit_card_payment": 700,
-            "other_expenses": 2000,
-            "per_child_expense": 400
-        },
+        "expenses": [
+            {
+                "name": "taxes",
+                "amount": 2000
+            },
+            {
+                "name": "home_mortgage_payment",
+                "amount": 1000
+            },
+            {
+                "name": "school_loan_payment",
+                "amount": 0
+            },
+            {
+                "name": "car_loan_payment",
+                "amount": 300
+            },
+            {
+                "name": "credit_card_payment",
+                "amount": 700
+            },
+            {
+                "name": "other_expenses",
+                "amount": 2000
+            },
+            {
+                "name": "per_child_expense",
+                "amount": 400
+            }
+        ],
         "assets": {
             "saving": 2500
         },
@@ -171,15 +319,36 @@
         "income": {
             "salary": 7500
         },
-        "expenses": {
-            "taxes": 1800,
-            "home_mortgage_payment": 1100,
-            "school_loan_payment": 300,
-            "car_loan_payment": 200,
-            "credit_card_payment": 200,
-            "other_expenses": 1500,
-            "per_child_expense": 400
-        },
+        "expenses": [
+            {
+                "name": "taxes",
+                "amount": 1800
+            },
+            {
+                "name": "home_mortgage_payment",
+                "amount": 1100
+            },
+            {
+                "name": "school_loan_payment",
+                "amount": 300
+            },
+            {
+                "name": "car_loan_payment",
+                "amount": 200
+            },
+            {
+                "name": "credit_card_payment",
+                "amount": 200
+            },
+            {
+                "name": "other_expenses",
+                "amount": 1500
+            },
+            {
+                "name": "per_child_expense",
+                "amount": 400
+            }
+        ],
         "assets": {
             "saving": 2000
         },
@@ -195,15 +364,36 @@
         "income": {
             "salary": 2000
         },
-        "expenses": {
-            "taxes": 400,
-            "home_mortgage_payment": 300,
-            "school_loan_payment": 0,
-            "car_loan_payment": 100,
-            "credit_card_payment": 100,
-            "other_expenses": 400,
-            "per_child_expense": 100
-        },
+        "expenses": [
+            {
+                "name": "taxes",
+                "amount": 400
+            },
+            {
+                "name": "home_mortgage_payment",
+                "amount": 300
+            },
+            {
+                "name": "school_loan_payment",
+                "amount": 0
+            },
+            {
+                "name": "car_loan_payment",
+                "amount": 100
+            },
+            {
+                "name": "credit_card_payment",
+                "amount": 100
+            },
+            {
+                "name": "other_expenses",
+                "amount": 400
+            },
+            {
+                "name": "per_child_expense",
+                "amount": 100
+            }
+        ],
         "assets": {
             "saving": 700
         },
@@ -219,15 +409,36 @@
         "income": {
             "salary": 4900
         },
-        "expenses": {
-            "taxes": 1000,
-            "home_mortgage_payment": 700,
-            "school_loan_payment": 100,
-            "car_loan_payment": 200,
-            "credit_card_payment": 200,
-            "other_expenses": 1000,
-            "per_child_expense": 200
-        },
+        "expenses": [
+            {
+                "name": "taxes",
+                "amount": 1000
+            },
+            {
+                "name": "home_mortgage_payment",
+                "amount": 700
+            },
+            {
+                "name": "school_loan_payment",
+                "amount": 100
+            },
+            {
+                "name": "car_loan_payment",
+                "amount": 200
+            },
+            {
+                "name": "credit_card_payment",
+                "amount": 200
+            },
+            {
+                "name": "other_expenses",
+                "amount": 1000
+            },
+            {
+                "name": "per_child_expense",
+                "amount": 200
+            }
+        ],
         "assets": {
             "saving": 400
         },
@@ -243,15 +454,36 @@
         "income": {
             "salary": 2500
         },
-        "expenses": {
-            "taxes": 500,
-            "home_mortgage_payment": 400,
-            "school_loan_payment": 0,
-            "car_loan_payment": 100,
-            "credit_card_payment": 100,
-            "other_expenses": 600,
-            "per_child_expense": 100
-        },
+        "expenses": [
+            {
+                "name": "taxes",
+                "amount": 500
+            },
+            {
+                "name": "home_mortgage_payment",
+                "amount": 400
+            },
+            {
+                "name": "school_loan_payment",
+                "amount": 0
+            },
+            {
+                "name": "car_loan_payment",
+                "amount": 100
+            },
+            {
+                "name": "credit_card_payment",
+                "amount": 100
+            },
+            {
+                "name": "other_expenses",
+                "amount": 600
+            },
+            {
+                "name": "per_child_expense",
+                "amount": 100
+            }
+        ],
         "assets": {
             "saving": 700
         },
@@ -267,15 +499,36 @@
         "income": {
             "salary": 1600
         },
-        "expenses": {
-            "taxes": 300,
-            "home_mortgage_payment": 200,
-            "school_loan_payment": 0,
-            "car_loan_payment": 100,
-            "credit_card_payment": 100,
-            "other_expenses": 300,
-            "per_child_expense": 100
-        },
+        "expenses": [
+            {
+                "name": "taxes",
+                "amount": 300
+            },
+            {
+                "name": "home_mortgage_payment",
+                "amount": 200
+            },
+            {
+                "name": "school_loan_payment",
+                "amount": 0
+            },
+            {
+                "name": "car_loan_payment",
+                "amount": 100
+            },
+            {
+                "name": "credit_card_payment",
+                "amount": 100
+            },
+            {
+                "name": "other_expenses",
+                "amount": 300
+            },
+            {
+                "name": "per_child_expense",
+                "amount": 100
+            }
+        ],
         "assets": {
             "saving": 600
         },
