@@ -1,5 +1,11 @@
 import { Schema, model, now } from 'mongoose';
 
+enum SessionStatus {
+  WAITING = 'WAITING',
+  STARTED = 'STARTED',
+  END = 'END',
+}
+
 type PlayerSessionType = {
   player_id: string;
   name: string;
@@ -12,6 +18,7 @@ type SessionType = {
   created_at: Date;
   total_player: number;
   players: PlayerSessionType[];
+  status: SessionStatus;
 };
 
 const sessionSchema = new Schema<SessionType>({
@@ -29,6 +36,7 @@ const sessionSchema = new Schema<SessionType>({
       host: { type: Boolean, default: false },
     },
   ],
+  status: { type: String, enum: SessionStatus, default: SessionStatus.WAITING },
 });
 
 const Session = model<SessionType>('sessions', sessionSchema);
