@@ -29,11 +29,12 @@ async function createPlayer(req: Request, res: Response) {
       player.save();
 
       session.players.push({
-        playerId: player.id,
+        player_id: player.id,
         name: player.name,
         cashflow: player.cashflow_per_month,
+        host: session.total_player === 0 ? true : false,
       });
-      session.totalPlayer = session.players.length;
+      session.total_player = session.players.length;
       session.save();
 
       return res.status(201).json(player);
