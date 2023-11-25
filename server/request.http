@@ -1,1 +1,31 @@
-GET http://localhost:8000/ HTTP/1.1
+@host=http://localhost:8000/api
+###
+# Get all professions
+GET {{host}}/professions HTTP/1.1
+
+###
+POST {{host}}/players HTTP/1.1
+Content-Type: application/json
+
+{
+
+}
+
+###
+# Get all sessions
+GET {{host}}/sessions HTTP/1.1
+
+###
+# Get session detail
+GET {{host}}/sessions/551b30e3-4351-4a85-8fd2-33291ce720df HTTP/1.1
+
+###
+# Create a session
+POST {{host}}/sessions HTTP/1.1
+Content-Type: application/json
+
+{
+
+}
+
+###
