@@ -17,6 +17,10 @@ POST {{host}}/sessions HTTP/1.1
 Content-Type: application/json
 
 ###
+# Update a session status
+PATCH {{host}}/sessions?key=E910EC&status=STARTED HTTP/1.1
+
+###
 # Delete a session
 DELETE {{host}}/sessions?key=0b8c727c-17a9-47b0-8d3d-dbc22e9c511a HTTP/1.1
 
