@@ -1,9 +1,10 @@
 import { Request, Response } from 'express';
 import { uuid } from 'uuidv4';
 import Session from '../models/session.model';
+import Player from '../models/player.model';
 
 async function createSession(req: Request, res: Response) {
-  const session = await Session.create({session: uuid()});
+  const session = await Session.create({ session: uuid() });
   return res.status(201).json({
     data: session,
   });
@@ -25,8 +26,43 @@ async function getSessionDetail(req: Request, res: Response) {
       msg: 'session not found',
     });
   }
+
   return res.status(200).json({
     data: session,
+  });
+}
+
+async function removePlayerFromSession(req: Request, res: Response) {
+  const key = req.params.key as string;
+  const player = req.query.player as string;
+
+  const session = await Session.findOne({ session: key });
+
+  if (session) {
+    const index = session.players.findIndex((p) => p.name === player);
+
+    if (index !== -1) {
+      const isHost = session.players[index].host;
+
+      if (isHost) {
+        return res.status(400).json({
+          msg: "host player can not be remove",
+        });
+      }
+
+      session.players.splice(index, 1);
+      session.save();
+
+      await Player.findOneAndDelete({ name: player });
+
+      return res.status(200).json({
+        data: session,
+      });
+    }
+  }
+
+  return res.status(400).json({
+    msg: 'session not found',
   });
 }
 
@@ -34,4 +70,5 @@ export {
   createSession,
   getAllSessions,
   getSessionDetail,
+  removePlayerFromSession,
 };
